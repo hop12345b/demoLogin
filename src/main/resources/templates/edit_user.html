@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div align="center">
+  <h1>Edit User</h1>
+  <br />
+<!--  <form action="#" th:action="@{/save}" th:object="${password}"-->
+<!--        method="post">-->
+<!--    <table>-->
+<!--      <tr>-->
+<!--      <tr>-->
+<!--        <td><input type="hidden" th:field="*{locked}"></td>-->
+<!--      </tr>-->
+<!--      </tr>-->
+<!--    </table>-->
+<!--  </form>-->
+  <form action="#" th:action="@{/save}" th:object="${user}"
+        method="post">
+
+    <table border="0" cellpadding="10">
+      <tr>
+        <td>ID:</td>
+        <td>
+          <input type="text" th:field="*{id}" readonly="readonly" />
+        </td>
+      </tr>
+      <tr>
+        <td>Username:</td>
+        <td>
+          <input type="text" th:field="*{username}" readonly="readonly" />
+        </td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td><input type="text" th:field="*{email}" /></td>
+      </tr>
+      <tr>
+        <td>Phone number:</td>
+        <td><input type="text" th:field="*{phoneNumber}" /></td>
+      </tr>
+      <tr>
+        <td>Role:</td>
+        <td>
+        <select name="role">
+          <option value="user" selected>User</option>
+          <option value="admin">Admin</option>
+        </select>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2"><button type="submit">Save</button> </td>
+      </tr>
+      <tr>
+        <td><input type="hidden" th:field="*{locked}"></td>
+      </tr>
+      <tr>
+        <td><input type="hidden" th:field="*{FAILED_ATTEMPTS}"></td>
+      </tr>
+      <tr>
+        <td><input type="hidden" th:field="*{firstLogin}"></td>
+      </tr>
+    </table>
+  </form>
+</div>
+
+</body>
+</html>

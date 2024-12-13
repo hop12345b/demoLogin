@@ -1,0 +1,18 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Home Page</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<h2 class="mt-5">Welcome to home page!</h2>
+<div th:if="${login_success}" class="alert alert-success">
+  You have been logged in
+</div>
+<a href="/change-password" class="link link-primary">Change Password</a><br>
+<a href="/logout" class="link link-primary"> Logout </a><br>
+<a href="/add-info" class="link link-primary"> Add information </a>
+</body>
+</html>

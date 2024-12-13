@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+  <h2 class="mt-5">Admin page</h2>
+  <br/><br/>
+  <table border="1" cellpadding="10">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Username</th>
+      <th>Creation date</th>
+      <th>Email</th>
+      <th>Phone number</th>
+      <th>Role</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${userList}">
+      <td th:text="${user.id}">Id</td>
+      <td th:text="${user.username}">Username</td>
+      <td th:text="${user.creationDate}">Creation date</td>
+      <td th:text="${user.email}">Email</td>
+      <td th:text="${user.phoneNumber}">Phone number</td>
+      <td th:text="${user.role}">Role</td>
+
+      <td>
+        <a th:href="@{'/edit/' + ${user.id}}">Edit</a>
+        &nbsp;&nbsp;&nbsp;
+        <a th:href="@{'/delete/' + ${user.id}}">Delete</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <a href="/change-password" class="link link-primary">Change Password</a><br>
+  <a href="/logout" class="link link-primary"> Logout </a><br>
+</div>
+
+</body>
+</html>

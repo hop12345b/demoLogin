@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Unlock account</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+  <h2 class="mt-5">Unlock account</h2>
+  <form action="/otp" method="post">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" class="form-control" required="required" />
+    </div>
+    <button type="submit" class="btn btn-primary">Send OTP</button>
+  </form>
+
+  <div th:if="${error_username}" class="alert alert-danger">
+    Your username is not exists
+  </div>
+  <div th:if="${wrong_user}" class="alert alert-danger">
+    Your account is not be locked
+  </div>
+  <div th:if="${username_locked}" class="alert alert-danger">
+    Your account has been locked. Please contact support
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+  <h2 class="mt-5">Login</h2>
+  <div th:if="${error_username}" class="alert alert-danger">
+    Your username is not exists
+  </div>
+  <div th:if="${error}" class="alert alert-danger">
+    Invalid username or password
+  </div>
+  <div th:if="${account_locked}" class="alert alert-danger">
+    Your account is locked. Please contact support
+  </div>
+  <div th:if="${logout}" class="alert alert-success">
+    You have been logged out.
+  </div>
+  <div th:if="${registered_success}" class="alert alert-success">
+    You have been registered successful.
+  </div>
+  <div th:if="${change_password_success}" class="alert alert-success">
+    Your password has been changed.
+  </div>
+  <div th:if="${unlock_account_success}" class="alert alert-success">
+    Your account has been unlocked.
+  </div>
+  <div th:if="${reset_password_success}" class="alert alert-success">
+    Your password has been reset.
+  </div>
+
+  <form th:action="@{/login}" method="post">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" class="form-control" required="required" />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" class="form-control" required="required" />
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+  <a href="/register" class="link link-primary">Register</a>
+  <a href="/forget-password" class="link link-primary">Forget password</a>
+</div>
+
+</body>
+</html>

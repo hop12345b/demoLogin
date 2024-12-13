@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Unlock account</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+  <h2 class="mt-5">Unlock account</h2>
+  <form action="/unlock-account" method="post">
+    <div class="form-group">
+      <label for="otp">OTP</label>
+      <input type="password" id="otp" name="otp" class="form-control" required="required" />
+    </div>
+    <button type="submit" class="btn btn-primary">Unlock</button>
+  </form>
+
+  <div th:if="${otp_sent}" class="alert alert-success">
+    Your OTP has been sent to your device
+  </div>
+  <div th:if="${wrong_otp}" class="alert alert-danger">
+    Your OTP is incorrect or expired
+  </div>
+</div>
+</body>
+</html>

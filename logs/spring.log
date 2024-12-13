@@ -1,0 +1,75 @@
+2024-12-12T10:42:04.746+07:00  INFO 15540 --- [demo] [main] com.example.demo.AppMain                 : Starting AppMain using Java 23.0.1 with PID 15540 (C:\Users\ADMIN\IdeaProjects\demoLogin\target\classes started by ADMIN in C:\Users\ADMIN\IdeaProjects\demoLogin)
+2024-12-12T10:42:04.748+07:00  INFO 15540 --- [demo] [main] com.example.demo.AppMain                 : No active profile set, falling back to 1 default profile: "default"
+2024-12-12T10:42:05.828+07:00  INFO 15540 --- [demo] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-12T10:42:05.828+07:00  INFO 15540 --- [demo] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-12T10:42:05.870+07:00  INFO 15540 --- [demo] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-12T10:42:06.000+07:00  INFO 15540 --- [demo] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-12T10:42:06.068+07:00  INFO 15540 --- [demo] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.2.Final
+2024-12-12T10:42:06.103+07:00  INFO 15540 --- [demo] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-12T10:42:06.368+07:00  INFO 15540 --- [demo] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-12T10:42:06.645+07:00  INFO 15540 --- [demo] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@314f59b
+2024-12-12T10:42:06.647+07:00  INFO 15540 --- [demo] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-12T10:42:06.714+07:00  INFO 15540 --- [demo] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.29
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2024-12-12T10:42:07.313+07:00  INFO 15540 --- [demo] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-12T10:42:07.632+07:00  WARN 15540 --- [demo] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-12T10:42:07.946+07:00  INFO 15540 --- [demo] [main] com.example.demo.AppMain                 : Started AppMain in 3.596 seconds (process running for 3.902)
+2024-12-12T10:42:18.762+07:00  INFO 15540 --- [demo] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-12T10:42:18.767+07:00  INFO 15540 --- [demo] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-12T10:42:20.350+07:00  INFO 14956 --- [demo] [main] com.example.demo.AppMain                 : Starting AppMain using Java 23.0.1 with PID 14956 (C:\Users\ADMIN\IdeaProjects\demoLogin\target\classes started by ADMIN in C:\Users\ADMIN\IdeaProjects\demoLogin)
+2024-12-12T10:42:20.353+07:00  INFO 14956 --- [demo] [main] com.example.demo.AppMain                 : No active profile set, falling back to 1 default profile: "default"
+2024-12-12T10:42:21.382+07:00  INFO 14956 --- [demo] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-12T10:42:21.382+07:00  INFO 14956 --- [demo] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-12T10:42:21.427+07:00  INFO 14956 --- [demo] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-12T10:42:21.571+07:00  INFO 14956 --- [demo] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-12T10:42:21.641+07:00  INFO 14956 --- [demo] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.2.Final
+2024-12-12T10:42:21.678+07:00  INFO 14956 --- [demo] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-12T10:42:21.952+07:00  INFO 14956 --- [demo] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-12T10:42:22.242+07:00  INFO 14956 --- [demo] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@68b3248a
+2024-12-12T10:42:22.244+07:00  INFO 14956 --- [demo] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-12T10:42:22.299+07:00  INFO 14956 --- [demo] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.29
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2024-12-12T10:42:22.897+07:00  INFO 14956 --- [demo] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-12T10:42:23.221+07:00  WARN 14956 --- [demo] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-12T10:42:23.647+07:00  INFO 14956 --- [demo] [main] com.example.demo.AppMain                 : Started AppMain in 3.694 seconds (process running for 4.022)
+2024-12-12T10:42:40.093+07:00  INFO 14956 --- [demo] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-12T10:42:40.099+07:00  INFO 14956 --- [demo] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-12T10:42:41.902+07:00  INFO 2372 --- [demo] [main] com.example.demo.AppMain                 : Starting AppMain using Java 23.0.1 with PID 2372 (C:\Users\ADMIN\IdeaProjects\demoLogin\target\classes started by ADMIN in C:\Users\ADMIN\IdeaProjects\demoLogin)
+2024-12-12T10:42:41.905+07:00  INFO 2372 --- [demo] [main] com.example.demo.AppMain                 : No active profile set, falling back to 1 default profile: "default"
+2024-12-12T10:42:43.052+07:00  INFO 2372 --- [demo] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-12T10:42:43.053+07:00  INFO 2372 --- [demo] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-12T10:42:43.092+07:00  INFO 2372 --- [demo] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-12T10:42:43.224+07:00  INFO 2372 --- [demo] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-12T10:42:43.287+07:00  INFO 2372 --- [demo] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.2.Final
+2024-12-12T10:42:43.326+07:00  INFO 2372 --- [demo] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-12T10:42:43.597+07:00  INFO 2372 --- [demo] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-12T10:42:43.859+07:00  INFO 2372 --- [demo] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@68b3248a
+2024-12-12T10:42:43.862+07:00  INFO 2372 --- [demo] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-12T10:42:43.921+07:00  INFO 2372 --- [demo] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.29
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2024-12-12T10:42:44.464+07:00  INFO 2372 --- [demo] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-12T10:42:44.816+07:00  WARN 2372 --- [demo] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-12T10:42:45.176+07:00  INFO 2372 --- [demo] [main] com.example.demo.AppMain                 : Started AppMain in 3.741 seconds (process running for 4.142)
+2024-12-12T10:46:01.083+07:00  INFO 2372 --- [demo] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-12T10:46:01.241+07:00  WARN 2372 --- [demo] [http-nio-8080-exec-1] com.example.demo.Service.UserService     : Username: hop12345d login failed (wrong password)
+2024-12-12T10:46:06.196+07:00  INFO 2372 --- [demo] [http-nio-8080-exec-2] com.example.demo.Service.UserService     : Username: hop12345d logged in
+2024-12-12T10:46:22.713+07:00  INFO 2372 --- [demo] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-12T10:46:22.718+07:00  INFO 2372 --- [demo] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
