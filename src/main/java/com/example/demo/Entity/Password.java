@@ -3,6 +3,7 @@ package com.example.demo.Entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "password")
 public class Password {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -10,57 +11,56 @@ public class Password {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "username")
-    private String username;
+    @Column(name = "uid")
+    private int uid;
 
     @Column(name = "password")
-    private String currentPassword;
+    private String password;
 
-    @Column(name = "old_password1")
-    private String oldPassword1;
-
-    @Column(name = "old_password2")
-    private String oldPassword2;
-
-    @Column(name = "old_password3")
-    private String oldPassword3;
+    @Column(name = "update_time")
+    private String updateTime;
 
     @OneToOne
-    @JoinColumn(name = "username" , referencedColumnName = "username" , insertable = false , updatable = false)
+    @JoinColumn(name = "id" , referencedColumnName = "uid" , insertable = false , updatable = false)
     private User user;
 
-    public String getUsername() {
-        return username;
+    public int getUid() {
+        return uid;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUid(int uid) {
+        this.uid = uid;
     }
 
-    public String getCurrentPassword() {
-        return currentPassword;
-    }
-
-    public void setCurrentPassword(String currentPassword) {
-        this.currentPassword = currentPassword;
-    }
-
-    public String getOldPassword1() {
-        return oldPassword1;
-    }
-
-    public String getOldPassword2() {
-        return oldPassword2;
-    }
-
-    public String getOldPassword3() {
-        return oldPassword3;
+    public String getPassword() {
+        return password;
     }
 
     public void setPassword(String password){
-        oldPassword3 = oldPassword2;
-        oldPassword2 = oldPassword1;
-        oldPassword1 = currentPassword;
-        currentPassword = password;
+        this.password = password;
+    }
+
+    public String getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -3,6 +3,7 @@ package com.example.demo.Entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "otp")
 public class OTP {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -10,8 +11,8 @@ public class OTP {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "username")
-    private String username;
+    @Column(name = "uid")
+    private int uid;
 
     @Column(name = "otp")
     private String otp;
@@ -20,7 +21,7 @@ public class OTP {
     private String otpExpiry;
 
     @OneToOne
-    @JoinColumn(name = "username" , referencedColumnName = "username", insertable = false , updatable = false)
+    @JoinColumn(name = "id" , referencedColumnName = "uid", insertable = false , updatable = false)
     private User user;
 
     public int getId() {
@@ -39,12 +40,12 @@ public class OTP {
         this.user = user;
     }
 
-    public String getUsername() {
-        return username;
+    public int getUid() {
+        return uid;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUid(int uid) {
+        this.uid = uid;
     }
 
     public String getOtpExpiry() {

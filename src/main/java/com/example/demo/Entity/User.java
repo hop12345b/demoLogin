@@ -2,10 +2,8 @@ package com.example.demo.Entity;
 
 import jakarta.persistence.*;
 
-import java.util.Calendar;
-import java.util.Date;
-
 @Entity
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,26 +14,11 @@ public class User {
     @Column(name = "username")
     private String username;
 
-    @Column(name = "locked")
-    private boolean locked;
+    @Column(name = "status")
+    private String status;
 
     @Column(name = "FAILED_ATTEMPTS")
     private int FAILED_ATTEMPTS;
-
-    @Column(name = "first_login")
-    private String firstLogin;
-
-    @Column(name = "email")
-    private String email;
-
-    @Column(name = "phone_number")
-    private String phoneNumber;
-
-    @Column(name = "role")
-    private String role;
-
-    @Column(name = "creation_date")
-    private Date creationDate;
 
     @OneToOne(mappedBy = "user" , cascade = CascadeType.ALL)
     private OTP otp;
@@ -43,17 +26,11 @@ public class User {
     @OneToOne(mappedBy = "user" , cascade = CascadeType.ALL )
     private Password passwords;
 
-//    public void setOtp(OTP otp) {
-//        this.otp = otp;
-//    }
-//
-//    public void setPasswords(Password passwords) {
-//        this.passwords = passwords;
-//    }
+    @OneToOne(mappedBy = "user" , cascade = CascadeType.ALL)
+    private UserDetail userDetail;
 
-    public String getRole() {
-        return role;
-    }
+    @OneToOne(mappedBy = "user" , cascade = CascadeType.ALL)
+    private Role role;
 
     public int getId() {
         return id;
@@ -61,26 +38,6 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getUsername() {
@@ -91,14 +48,6 @@ public class User {
         this.username = username;
     }
 
-    public boolean isLocked() {
-        return locked;
-    }
-
-    public void setLocked(boolean locked) {
-        this.locked = locked;
-    }
-
     public int getFAILED_ATTEMPTS() {
         return FAILED_ATTEMPTS;
     }
@@ -107,15 +56,43 @@ public class User {
         this.FAILED_ATTEMPTS = FAILED_ATTEMPTS;
     }
 
-    public String getFirstLogin() {
-        return firstLogin;
+    public String getStatus() {
+        return status;
     }
 
-    public void setFirstLogin(String firstLogin) {
-        this.firstLogin = firstLogin;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public void setCreationDate() {
-        this.creationDate = Calendar.getInstance().getTime();
+    public OTP getOtp() {
+        return otp;
+    }
+
+    public void setOtp(OTP otp) {
+        this.otp = otp;
+    }
+
+    public Password getPasswords() {
+        return passwords;
+    }
+
+    public void setPasswords(Password passwords) {
+        this.passwords = passwords;
+    }
+
+    public UserDetail getUserDetail() {
+        return userDetail;
+    }
+
+    public void setUserDetail(UserDetail userDetail) {
+        this.userDetail = userDetail;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

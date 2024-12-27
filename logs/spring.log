@@ -69,7 +69,7 @@
 2024-12-12T10:42:44.816+07:00  WARN 2372 --- [demo] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2024-12-12T10:42:45.176+07:00  INFO 2372 --- [demo] [main] com.example.demo.AppMain                 : Started AppMain in 3.741 seconds (process running for 4.142)
 2024-12-12T10:46:01.083+07:00  INFO 2372 --- [demo] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-12-12T10:46:01.241+07:00  WARN 2372 --- [demo] [http-nio-8080-exec-1] com.example.demo.Service.UserService     : Username: hop12345d login failed (wrong password)
-2024-12-12T10:46:06.196+07:00  INFO 2372 --- [demo] [http-nio-8080-exec-2] com.example.demo.Service.UserService     : Username: hop12345d logged in
+2024-12-12T10:46:01.241+07:00  WARN 2372 --- [demo] [http-nio-8080-exec-1] com.example.demo.Service.AppService     : Username: hop12345d login failed (wrong password)
+2024-12-12T10:46:06.196+07:00  INFO 2372 --- [demo] [http-nio-8080-exec-2] com.example.demo.Service.AppService     : Username: hop12345d logged in
 2024-12-12T10:46:22.713+07:00  INFO 2372 --- [demo] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-12-12T10:46:22.718+07:00  INFO 2372 --- [demo] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

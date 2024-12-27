@@ -4,25 +4,28 @@
   <meta charset="UTF-8">
   <title>Login</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <link rel="stylesheet" th:href="@{/style.css}" />
+  <script src="../static/main.js"></script>
 </head>
 <body>
 
 <div class="container">
-  <h2 class="mt-5">Login</h2>
+  <h2 class="mt-5">Login Page</h2>
   <div th:if="${error_username}" class="alert alert-danger">
     Your username is not exists
   </div>
   <div th:if="${error}" class="alert alert-danger">
-    Invalid username or password
+    Invalid username or password.
   </div>
   <div th:if="${account_locked}" class="alert alert-danger">
-    Your account is locked. Please contact support
+    Your account has been locked due to multiple failed attempts. Please contact support.
   </div>
   <div th:if="${logout}" class="alert alert-success">
     You have been logged out.
   </div>
   <div th:if="${registered_success}" class="alert alert-success">
-    You have been registered successful.
+    You have registered successful. Your password has been sent to your email.
   </div>
   <div th:if="${change_password_success}" class="alert alert-success">
     Your password has been changed.
@@ -33,21 +36,42 @@
   <div th:if="${reset_password_success}" class="alert alert-success">
     Your password has been reset.
   </div>
+  <div th:if="${not_logged_in_yet}" class="alert alert-warning">
+    You have to login first.
+  </div>
 
   <form th:action="@{/login}" method="post">
     <div class="form-group">
       <label for="username">Username</label>
-      <input type="text" id="username" name="username" class="form-control" required="required" />
+      <input type="text" id="username" name="username" class="form-control" placeholder="Username" required="required" />
     </div>
-
-    <div class="form-group">
+    <div class="input-box">
       <label for="password">Password</label>
-      <input type="password" id="password" name="password" class="form-control" required="required" />
+      <div class="password-field">
+          <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="required" />
+          <i id="show-bt" class="uil uil-eye-slash"></i>
+      </div>
     </div>
+    <script>
+      const toggleButton = document.getElementById('show-bt');
+      const passwordInput = document.getElementById('password');
+
+      toggleButton.addEventListener('click', function() {
+         if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            toggleButton.classList.replace("uil-eye-slash" , "uil-eye");
+         } else {
+            passwordInput.type = 'password';
+            toggleButton.classList.replace("uil-eye" , "uil-eye-slash");
+         }
+      });
+    </script>
+    <br>
     <button type="submit" class="btn btn-primary">Login</button>
   </form>
   <a href="/register" class="link link-primary">Register</a>
   <a href="/forget-password" class="link link-primary">Forget password</a>
+  <a href="/unlock-account" class="link link-primary">Unlock account</a>
 </div>
 
 </body>

@@ -9,20 +9,9 @@
 <div align="center">
   <h1>Edit User</h1>
   <br />
-<!--  <form action="#" th:action="@{/save}" th:object="${password}"-->
-<!--        method="post">-->
-<!--    <table>-->
-<!--      <tr>-->
-<!--      <tr>-->
-<!--        <td><input type="hidden" th:field="*{locked}"></td>-->
-<!--      </tr>-->
-<!--      </tr>-->
-<!--    </table>-->
-<!--  </form>-->
-  <form action="#" th:action="@{/save}" th:object="${user}"
-        method="post">
-
+  <form action="#" th:action="@{/save}" method="post">
     <table border="0" cellpadding="10">
+      <div th:object="${userDetail}">
       <tr>
         <td>ID:</td>
         <td>
@@ -30,18 +19,46 @@
         </td>
       </tr>
       <tr>
-        <td>Username:</td>
+        <td>Uid:</td>
+        <td>
+          <input type="text" th:field="*{uid}" readonly="readonly" />
+        </td>
+      </tr>
+        <tr>
+        <td>Username</td>
         <td>
           <input type="text" th:field="*{username}" readonly="readonly" />
+        </td>
+        </tr>
+      <tr>
+        <td>Creation date:</td>
+        <td>
+          <input type="text" th:field="*{creationDate}" readonly="readonly"/>
         </td>
       </tr>
       <tr>
         <td>Email:</td>
-        <td><input type="text" th:field="*{email}" /></td>
+        <td>
+          <input type="text" th:field="*{email}" readonly="readonly"/>
+        </td>
+      </tr>
+      <tr>
+        <td>First name:</td>
+        <td>
+          <input type="text" th:field="*{firstName}" readonly="readonly"/>
+        </td>
+      </tr>
+      <tr>
+        <td>Last name:</td>
+        <td>
+          <input type="text" th:field="*{lastName}" readonly="readonly"/>
+        </td>
       </tr>
       <tr>
         <td>Phone number:</td>
-        <td><input type="text" th:field="*{phoneNumber}" /></td>
+        <td>
+          <input type="text" th:field="*{phoneNumber}" />
+        </td>
       </tr>
       <tr>
         <td>Role:</td>
@@ -52,17 +69,9 @@
         </select>
         </td>
       </tr>
+      </div>
       <tr>
         <td colspan="2"><button type="submit">Save</button> </td>
-      </tr>
-      <tr>
-        <td><input type="hidden" th:field="*{locked}"></td>
-      </tr>
-      <tr>
-        <td><input type="hidden" th:field="*{FAILED_ATTEMPTS}"></td>
-      </tr>
-      <tr>
-        <td><input type="hidden" th:field="*{firstLogin}"></td>
       </tr>
     </table>
   </form>

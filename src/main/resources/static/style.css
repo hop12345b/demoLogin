@@ -1,0 +1,55 @@
+.password-field{
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+#show-bt , #show-bt1 , #show-bt2 , #show-bt3{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+a:link {
+    margin-right: 10px;
+}
+
+#message {
+  display:none;
+  position: relative;
+    margin-bottom: 7.5px;
+    margin-top: 7.5px;
+}
+
+#message i {
+  font-size: 15px;
+}
+
+#error {
+    display: none;
+    position: relative;
+    margin-bottom: 7.5px;
+    margin-top: 7.5px;
+}
+
+#error i {
+    font-size: 15px;
+}
+
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+}
+
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+}

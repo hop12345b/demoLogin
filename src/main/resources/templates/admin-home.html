@@ -4,43 +4,54 @@
   <meta charset="UTF-8">
   <title>Login</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" th:href="@{/style.css}" />
 </head>
 <body>
 
 <div class="container">
   <h2 class="mt-5">Admin page</h2>
-  <br/><br/>
-  <table border="1" cellpadding="10">
+  <br/>
+  <div th:if="${login_success}" class="alert alert-success">
+    You have been logged in
+  </div>
+  <table id="myTable" border="1" cellpadding="10">
     <thead>
     <tr>
-      <th>Id</th>
-      <th>Username</th>
-      <th>Creation date</th>
-      <th>Email</th>
-      <th>Phone number</th>
-      <th>Role</th>
+      <th onclick="sortTable(0)">Id</th>
+      <th onclick="sortTable(1)">Uid</th>
+      <th onclick="sortTable(2)">Username</th>
+      <th onclick="sortTable(3)">Creation date</th>
+      <th onclick="sortTable(4)">First name</th>
+      <th onclick="sortTable(5)">Last name</th>
+      <th onclick="sortTable(6)">Email</th>
+      <th onclick="sortTable(7)">Phone number</th>
+      <th onclick="sortTable(8)">Role</th>
       <th>Actions</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="user : ${userList}">
-      <td th:text="${user.id}">Id</td>
-      <td th:text="${user.username}">Username</td>
-      <td th:text="${user.creationDate}">Creation date</td>
-      <td th:text="${user.email}">Email</td>
-      <td th:text="${user.phoneNumber}">Phone number</td>
-      <td th:text="${user.role}">Role</td>
-
+    <tr th:each="userDetail : ${userDetailList}">
+      <td th:text="${userDetail.id}">Id</td>
+      <td th:text="${userDetail.uid}">Uid</td>
+      <td th:text="${userDetail.username}">Username</td>
+      <td th:text="${userDetail.creationDate}">Creation date</td>
+      <td th:text="${userDetail.firstName}">First name</td>
+      <td th:text="${userDetail.lastName}">Last name</td>
+      <td th:text="${userDetail.email}">Email</td>
+      <td th:text="${userDetail.phoneNumber}">Phone number</td>
+      <td th:text="${userDetail.role}">Role</td>
       <td>
-        <a th:href="@{'/edit/' + ${user.id}}">Edit</a>
+        <a th:href="@{'/edit/' + ${userDetail.id}}">Detail</a>
         &nbsp;&nbsp;&nbsp;
-        <a th:href="@{'/delete/' + ${user.id}}">Delete</a>
+        <a th:href="@{'/delete/' + ${userDetail.id}}">Delete</a>
       </td>
     </tr>
     </tbody>
   </table>
-  <a href="/change-password" class="link link-primary">Change Password</a><br>
-  <a href="/logout" class="link link-primary"> Logout </a><br>
+  <a href="/home" class="link link-primary"> Home Page </a>
+  <a href="/change-password" class="link link-primary">Change Password</a>
+  <a href="/logout" class="link link-primary"> Logout </a>
+  <script src ="" th:src="@{main.js}"></script>
 </div>
 
 </body>
