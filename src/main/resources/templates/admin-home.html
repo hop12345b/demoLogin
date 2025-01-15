@@ -1,58 +1,135 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" th:href="@{/style.css}" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/style.css}" />
 </head>
 <body>
-
 <div class="container">
-  <h2 class="mt-5">Admin page</h2>
-  <br/>
-  <div th:if="${login_success}" class="alert alert-success">
-    You have been logged in
-  </div>
-  <table id="myTable" border="1" cellpadding="10">
-    <thead>
-    <tr>
-      <th onclick="sortTable(0)">Id</th>
-      <th onclick="sortTable(1)">Uid</th>
-      <th onclick="sortTable(2)">Username</th>
-      <th onclick="sortTable(3)">Creation date</th>
-      <th onclick="sortTable(4)">First name</th>
-      <th onclick="sortTable(5)">Last name</th>
-      <th onclick="sortTable(6)">Email</th>
-      <th onclick="sortTable(7)">Phone number</th>
-      <th onclick="sortTable(8)">Role</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="userDetail : ${userDetailList}">
-      <td th:text="${userDetail.id}">Id</td>
-      <td th:text="${userDetail.uid}">Uid</td>
-      <td th:text="${userDetail.username}">Username</td>
-      <td th:text="${userDetail.creationDate}">Creation date</td>
-      <td th:text="${userDetail.firstName}">First name</td>
-      <td th:text="${userDetail.lastName}">Last name</td>
-      <td th:text="${userDetail.email}">Email</td>
-      <td th:text="${userDetail.phoneNumber}">Phone number</td>
-      <td th:text="${userDetail.role}">Role</td>
-      <td>
-        <a th:href="@{'/edit/' + ${userDetail.id}}">Detail</a>
-        &nbsp;&nbsp;&nbsp;
-        <a th:href="@{'/delete/' + ${userDetail.id}}">Delete</a>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-  <a href="/home" class="link link-primary"> Home Page </a>
-  <a href="/change-password" class="link link-primary">Change Password</a>
-  <a href="/logout" class="link link-primary"> Logout </a>
-  <script src ="" th:src="@{main.js}"></script>
-</div>
+    <h2 class="mt-5">Admin page</h2>
+    <br/>
+    <div class="alert alert-success" th:text="${login_success}" th:if="${login_success}"></div>
+    <a href="/home" class="link link-primary"> Home Page </a>
+    <a href="/change-password" class="link link-primary">Change Password</a>
+    <a href="/logout" class="link link-primary"> Logout </a>
+    <table id="myTable" border="1" cellpadding="10">
+        <thead>
+        <tr style="background-color: skyblue">
+            <th onclick="sortTable(0)">Uid</th>
+            <th onclick="sortTable(1)">Username</th>
+            <th onclick="sortTable(2)">Creation date</th>
+            <th onclick="sortTable(3)">First name</th>
+            <th onclick="sortTable(4)">Last name</th>
+            <th onclick="sortTable(5)">Email</th>
+            <th onclick="sortTable(6)">Phone number</th>
+            <th onclick="sortTable(7)">Role</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="userDetail : ${userDetailListByPage}">
+                <td th:text="${userDetail.uid}" style="width: 5%">Uid</td>
+                <td th:text="${userDetail.username}" style="width: 10%">Username</td>
+                <td th:text="${userDetail.creationDate}" style="width: 20%">Creation date</td>
+                <td th:text="${userDetail.firstName}" style="width: 10%">First name</td>
+                <td th:text="${userDetail.lastName}" style="width: 10%">Last name</td>
+                <td th:text="${userDetail.email}" style="width: 20%">Email</td>
+                <td th:text="${userDetail.phoneNumber}" style="width: 10%">Phone number</td>
+                <td th:text="${userDetail.role}" style="width: 5%">Role</td>
+                <td style="width: 10%">
+                  <a th:href="@{'/edit/' + ${userDetail.id}}">Detail</a>
+                  <a th:href="@{'/delete/' + ${userDetail.id}}" onclick="return confirm('Are you sure you want to delete this item')">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <div id = pagination></div>
+    <form id = "searchPage" method="get">
+        <label>Go to page: <input type="number" id="inputNumber" min="1" required="required"></label>
+        <button type="submit" class="btn btn-primary">Go</button>
+    </form>
+    <script>
+        const pg = document.getElementById("pagination");
+        let totalUser = Number('[[${userDetailList.size()}]]');
+        const rowsPerPage = 5 , totalDisplay = 4;
+        let startPage = 1 , endPage = startPage + totalDisplay;
+        const totalPage = Math.ceil(totalUser / rowsPerPage);
+        var path = window.location.pathname;
+        let link = path.split("/");
+        let currentPage = Number(link[2]) + 1;
+        if (currentPage - 2 > 0){
+            startPage = currentPage - 2;
+            endPage = currentPage + 2;
+        }
+        if (endPage > totalPage){
+            endPage = totalPage;
+        }
+        for (let i = startPage ; i <= endPage; i++){
+            let a = document.createElement('a');
+            let linkText = document.createTextNode("" + i);
+            a.href = "/admin-home/" + (i - 1);
+            a.classList.add("page-number");
+            a.appendChild(linkText);
+            pg.appendChild(a);
+        }
+        let div = document.createElement("div");
+        div.innerHTML = "Current page: " + currentPage + "&nbsp; Total page: " + totalPage;
+        div.style.color = "red";
+        div.style.marginLeft = "auto";
+        pg.appendChild(div);
+        pg.style.display = "flex";
 
+        document.getElementById("searchPage").addEventListener("submit" , function (event) {
+            let number = document.getElementById("inputNumber").value - 1;
+            if (number < 0 || number >= totalPage){
+                alert('Invalid page number')
+            }
+            else event.target.action = "/admin-home/" + number;
+        })
+
+        function sortTable(n) {
+            let table, rows, switching, i, x, y, shouldSwitch , dir , switchCount = 0;
+            table = document.getElementById("myTable");
+            switching = true;
+            dir = "asc";
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("td")[n];
+                    y = rows[i + 1].getElementsByTagName("td")[n];
+                    if (dir === "asc"){
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                    else if (dir === "desc") {
+                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    switchCount++;
+                }
+                else {
+                    if (switchCount === 0 && dir === "asc"){
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
+    </script>
+</div>
 </body>
 </html>

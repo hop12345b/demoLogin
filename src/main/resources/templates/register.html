@@ -2,15 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=yes">
     <title>Register</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container">
     <h2 class="mt-5">Register</h2>
-    <div th:if="${error_username}" class="alert alert-danger">
-        Your username is existed.
-    </div>
+    <p th:if="${error_username}" class="alert alert-danger" th:text="${error_username}"></p>
     <form action="/register" method="post">
         <div class="form-group">
             <label for="username">Username:</label>
@@ -18,12 +17,18 @@
         </div>
         <div class="form-group">
             <label for="email">Email:</label>
-            <input type="text" id="email" name="email" class="form-control" required="required">
+            <input type="text" id="email" name="email" class="form-control" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required="required">
         </div>
         <div>
             <label><input type="checkbox" required /> I accept the <a href="https://www.termsfeed.com/live/16378e3c-53b1-4f26-8f5a-c259f05948d6" target="_blank">Terms and Conditions</a>.</label>
         </div>
         <button type="submit" class="btn btn-primary">Register</button>
+        <button type="button" class="btn btn-primary" onclick="backToPreviousPage()">Back</button>
+        <script>
+            function backToPreviousPage(){
+                history.back();
+            }
+        </script>
     </form>
 </div>
 </body>
