@@ -1,8 +1,4 @@
-.password-field{
-    position: relative;
-    width: 100%;
-    box-sizing: border-box;
-}
+
 #show-bt , #show-bt1 , #show-bt2 , #show-bt3{
     position: absolute;
     top: 50%;
@@ -12,13 +8,28 @@
 }
 a:link {
     margin-right: 10px;
+    position: static;
+}
+
+div {
+    overflow: auto;
+}
+
+table {
+    table-layout: fixed;
+    overflow: auto;
+}
+
+td , th , tr{
+    overflow: hidden;
+    text-align: center;
 }
 
 #message {
   display:none;
   position: relative;
-    margin-bottom: 7.5px;
-    margin-top: 7.5px;
+    margin-bottom: 8px;
+    margin-top: 8px;
 }
 
 #message i {
@@ -28,8 +39,8 @@ a:link {
 #error {
     display: none;
     position: relative;
-    margin-bottom: 7.5px;
-    margin-top: 7.5px;
+    margin-bottom: 8px;
+    margin-top: 8px;
 }
 
 #error i {

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=yes">
+    <title>User Detail</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container" align="center">
+    <h2 class="mt-5">User Detail</h2>
+    <br />
+    <form th:action="@{/save}" method="post">
+        <table border="0" cellpadding="10">
+            <div th:object="${userDetail}">
+            <tr>
+                <td><input type="hidden" th:field="*{id}" readonly="readonly" /></td>
+            </tr>
+            <tr>
+                <td>Uid:</td>
+                <td><label>
+                    <input type="text" th:field="*{uid}" readonly="readonly">
+                </label></td>
+            </tr>
+                <td>Username:</td>
+                <td><label>
+                    <input type="text" th:field="*{username}" readonly="readonly" />
+                </label></td>
+            <tr>
+                <td>Creation date:</td>
+                <td><label>
+                    <input type="text" th:field="*{creationDate}" readonly="readonly"/>
+                </label></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><label>
+                    <input type="text" th:field="*{email}" readonly="readonly"/>
+                </label></td>
+            </tr>
+            <tr>
+                <td>First name:</td>
+                <td><label>
+                    <input type="text" th:field="*{firstName}" readonly="readonly"/>
+                </label></td>
+            </tr>
+            <tr>
+                <td>Last name:</td>
+                <td><label>
+                    <input type="text" th:field="*{lastName}" readonly="readonly"/>
+                </label></td>
+            </tr>
+            <tr>
+                <td>Phone number:</td>
+                <td><label>
+                    <input type="text" th:field="*{phoneNumber}" />
+                </label></td>
+            </tr>
+            <tr>
+                <td>Role:</td>
+                <td>
+                    <label>
+                        <select name="role" id="role-select">
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </label>
+                </td>
+            </tr>
+            </div>
+            <script>
+                document.getElementById('role-select').value = '[[${userDetail.role}]]';
+            </script>
+        </table>
+        <br>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-primary" onclick="backToPreviousPage()">Back</button>
+        <script>
+            function backToPreviousPage(){
+                history.back();
+            }
+        </script>
+    </form>
+</div>
+</body>
+</html>

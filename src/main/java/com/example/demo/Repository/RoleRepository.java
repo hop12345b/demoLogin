@@ -1,6 +1,5 @@
 package com.example.demo.Repository;
 
-import com.example.demo.Entity.Password;
 import com.example.demo.Entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
